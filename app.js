@@ -7,15 +7,15 @@ sdk.auth('l7u502p8v46ba3ppgvj5y2aad50lb9');
 
 const properties = {
 
-  printTitles: (limit = 50, page = 1) => {
+  printTitles: async (limit = 50, page = 1) => {
 
-    sdk.getProperties({page: page, limit: limit})
-      .then(({data}) => {
+    await sdk.getProperties({page: page, limit: limit})
+      .then(async ({data}) => {
 
         data.content.forEach(prop => console.log(prop.title));
 
         if (data.pagination.next_page != null) {
-          properties.printTitles(limit, ++page);
+          await properties.printTitles(limit, ++page);
         }
 
       })

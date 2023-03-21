@@ -9,14 +9,16 @@ describe('Properties', () => {
 
             const spy = sinon.spy(properties, 'printTitles');
 
-            await properties.printTitles(1);
+            await properties.printTitles(1).then(() => {
 
-            chai.expect(spy.callCount).to.equal(2);
+              chai.expect(spy.callCount).to.equal(2);
 
-            spy.restore();
+              spy.restore();
 
             });
+
         });
+    });
 });
 
 // *** Test helpers ***
