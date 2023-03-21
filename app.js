@@ -7,9 +7,9 @@ sdk.auth('l7u502p8v46ba3ppgvj5y2aad50lb9');
 
 const properties = {
 
-  printTitles: async (limit = 50, page = 1) => {
+  printTitles: (limit = 50, page = 1) => {
 
-    await sdk.getProperties({page: page, limit: limit})
+    sdk.getProperties({page: page, limit: limit})
       .then(({data}) => {
 
         data.content.forEach(prop => console.log(prop.title));
